@@ -31,10 +31,10 @@
             line-height: 1.1;
             text-indent: 0px;
         }
-        h3 {
-            display: inline;
-            line-height: 0.5;
-            text-indent: 20px;
+        h4 {
+            text-align: center;
+            line-height: 0;
+            font-weight: 300;
         }
         ul {
             margin: 25px;
@@ -68,7 +68,7 @@
         }
         /* Add some content at the bottom of the video/page */
         .content {
-        position:relative; /* "relative" adds scrollbar if not needed use "fixed" */
+        position:relative; /* "relative" resized content. if scrollbar is needed use "fixed" */
         background: rgba(0, 0, 0, 0.5);
         color: #f1f1f1;
         width: auto;
@@ -89,6 +89,7 @@
         color: black;
         }
         #demo {text-align: center;}
+
         @media screen and (max-width: 1200px) {
             main {font-size: 20px;}
         }
@@ -106,7 +107,7 @@
 
 
 <body>
-    <header>Hiking</header>
+    <header></header>
 
     <main>
         <!-- The video -->
@@ -137,17 +138,19 @@
         </script>  
 
         <div class="content">
-            <h1>Education</h1>
-            <h2>Bachelor of Science in Engineering (2014)</h2>
+            <h1>Mohican State Park </h1>
+            <h2>Park & Pack</h2>
                 <ul>
-                    <li>The University of Akron, Akron, Ohio</li>
-                    <li>Mechanical and Aerospace Engineering focus</li>
+                    <li>Forest Office</li>
+                    <li>Site #6</li>
                     <BR>
                 </ul>
             <!-- Use a button to pause/play the video with JavaScript -->
             <button id="myBtn" onclick="myFunction()">Unmute / Mute</button>
             <BR>
-
+            <BR>
+            <h2>Interactive Trail Map</h2>   
+            <iframe width="100%" height="750" frameborder="0" class="map" src="https://odnr.maps.arcgis.com/apps/webappviewer/index.html?id=a5ac7381b9f1462d85ff563e124ff6ba&query=ODNR_ODNR_Lands_External_1469_0%2CALT_NAME%20LIKE%20%27%25Mohican%25%27%20and%20DIV_CODE%3D730"></iframe>
             <!-- JAVASCRIPT CODE -->
             <!-- Display the countdown timer in an element -->
             <p id="demo"></p>
@@ -182,6 +185,7 @@
             }
             }, 1000);
             </script>
+            <h4>Videography By: Zoot 0684</h4>
         </div> 
     </main>
     <footer></footer>
