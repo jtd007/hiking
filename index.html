@@ -1,110 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hiking</title>
-<!--<link rel="stylesheet" href="index.css"> COMMENT-->
     <!--CSS CODE-->
     <style type="text/css" media="screen">
         /* BASIC TYPOGRAPHY */
         html {
-            font-size: 62.5%;
             font-family: serif;
         }
         body {
-            font-size: 1.8rem;
-            line-height: 1.618;
-            max-width: 38em;
-            margin: auto;
-            color: #ffffff;
-        }
-        @media (max-width: 684px) {
-            body {font-size: 1.53rem;}
-        }
-        @media (max-width: 382px) {
-            body {font-size: 1.35rem;}
-        }
-        h1, h2, h3, h4, h5, h6 {
             line-height: 0.75;
-            font-family: Verdana, Geneva, sans-serif;
-            font-weight: 700;
-            overflow-wrap: break-word;
-            word-wrap: break-word;
-            -ms-word-break: break-all;
-            word-break: break-word;
-            -ms-hyphens: auto;
-            -moz-hyphens: auto;
-            -webkit-hyphens: auto;
-            hyphens: auto;
+            color: black;
+            background-color: #f9f9f9;
+            max-width: inherit;
+            margin: 0px;
+            padding: 0 20px;
         }
-        h1 {font-size: 2.35em;}
-        h2 {font-size: 2em;}
-        h3 {font-size: 1.75em;}
-        h4 {font-size: 1.5em;}
-        h5 {font-size: 1.25em;}
-        h6 {font-size: 1em;}
-        a {font-size: 1.25em;}
-        li {font-size: 1.25em;}
-        /* RESET LAYOUT AND ADD COLORS */
-        body {
-    
-        max-width: inherit;
+        h1, h2, h3 {
+            font-family: verdana;
+            font-weight: 700;
+        }
+        h1 {
+            line-height: 0.5;
+        }
+        h2 {
+            line-height: 1.1;
+            text-indent: 0px;
+        }
+        h3 {
+            display: inline;
+            line-height: 0.5;
+            text-indent: 20px;
+        }
+        ul {
+            margin: 25px;
+            text-indent: 0px;
+            padding: 0em;
+        }
+        li {
+            line-height: 1.5;
+            font-size: 24px;
+        }
+        div {
+            text-indent: 0px;
         }
         header, footer {
-        font-size: x-large;
-        text-align: center;
-        flex: 1;
-        padding: 0 20px;
-        color: #f9f9f9;
-        background: rgba(0, 0, 0, 0.5);
-
-        width: 100%;   
-        z-index:1; /* Fix header and foot overlap */
-        margin: 20px;
-        width: 95.5%;
-        }
-        main{
-        background-position: center;
-        background-size: cover;
-        background-attachment: fixed;
-        }
-        /* FLEXBOX-BASED LAYOUT */
-        body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        }
-        .container {
-        display: flex;
-        flex: 1;
+            margin: 20px; /* extra space around main */
         }
         main {
-        flex: 1;
-        padding: 0 20px;
-        
-        }
-        /* GRID-BASED LAYOUT */
-        body {
-        display: grid;
-        min-height: 100vh;
-        grid-template-columns: 200px 1fr 150px;
-        grid-template-rows: min-content 1fr min-content;
-        
-        
-        }
-        header {
-        grid-row: 1;
-        grid-column: 1 / 4;
-        
- 
-        }
-        main {
-        grid-row: 2;
-        grid-column: 1 / 4;
-        }
-        footer {
-        grid-row: 3;
-        grid-column: 1 / 4;
+            width: 46em;
+            margin: 0 auto; /* centers main */
+            max-width: 80%;
+            line-height: 1.5;
+            font-size: 20px;
         }
         /* Style the video: 100% width and height to cover the entire window */
         #myVideo {
@@ -114,17 +66,14 @@
         min-width: 100%; 
         min-height: 100%;
         }
-
         /* Add some content at the bottom of the video/page */
         .content {
         position:relative; /* "relative" adds scrollbar if not needed use "fixed" */
         background: rgba(0, 0, 0, 0.5);
         color: #f1f1f1;
-        width: 97.5%;
+        width: auto;
         padding: 20px;
-
         }
-
         /* Style the button used to pause/play the video */
         #myBtn {
         width: 200px;
@@ -135,20 +84,34 @@
         color: #fff;
         cursor: pointer;
         }
-
         #myBtn:hover {
         background: #ddd;
         color: black;
         }
+        #demo {text-align: center;}
+        @media screen and (max-width: 1200px) {
+            main {font-size: 20px;}
+        }
+        @media screen and (max-width: 800px) {
+            main {font-size: 18px; color:blue;}
+            li {font-size: 22px; color:blue;}
+        }
+        @media screen and (max-width: 600px) {
+            main {font-size: 16px; color:crimson;}
+            li {font-size: 20px; color:crimson;}
+        }
+        /* Use a media query to add a breakpoint at 800px: */
     </style>
 </head>
+
+
 <body>
-<header>Hiking</header>
-<main>
-    
+    <header>Hiking</header>
+
+    <main>
         <!-- The video -->
         <video autoload muted loop id="myVideo">
-            <source src="vid.mp4" type="video/mp4">  
+                <source src="vid.mp4" type="video/mp4">  
         </video>
 
         <script>
@@ -163,65 +126,64 @@
 
                 // Pause and play the video, and change the button text
                 function myFunction() {
-                  if (video.muted) {
+                    if (video.muted) {
                     video.muted=false;
                     btn.innerHTML = "Unmute";
-                  } else {
+                    } else {
                     video.muted=true;
                     btn.innerHTML = "Mute";
-                  }
+                    }
                 }
-        </script>
-      
-        <!-- Optional: some overlay text to describe the video -->
+        </script>  
+
         <div class="content">
-            <h1>Map Overview</h1>
-            <img src="http://static1.squarespace.com/static/583ddbca440243877a144679/5861d60cc534a5283f4e0bca/592c9b30f7e0ab6406d97caa/1508413073370/allegheny-river-boat-launches.jpg?format=1500w" alt="Map"><BR>
-            <h5>Kayaking River Trip</h5>
-            <li>4 days & 3 nights from Warren, PA to Tionesta, PA</li>
-            <h1>Map Overview</h1>
-            <img src="http://static1.squarespace.com/static/583ddbca440243877a144679/5861d60cc534a5283f4e0bca/592c9b30f7e0ab6406d97caa/1508413073370/allegheny-river-boat-launches.jpg?format=1500w" alt="Map"><BR>
-            <h5>Kayaking River Trip</h5>
-            <li>4 days & 3 nights from Warren, PA to Tionesta, PA</li>
+            <h1>Education</h1>
+            <h2>Bachelor of Science in Engineering (2014)</h2>
+                <ul>
+                    <li>The University of Akron, Akron, Ohio</li>
+                    <li>Mechanical and Aerospace Engineering focus</li>
+                    <BR>
+                </ul>
             <!-- Use a button to pause/play the video with JavaScript -->
             <button id="myBtn" onclick="myFunction()">Unmute / Mute</button>
-        </div>
+            <BR>
+
+            <!-- JAVASCRIPT CODE -->
+            <!-- Display the countdown timer in an element -->
+            <p id="demo"></p>
+
+            <script>
+            // Set the date we're counting down to
+            var countDownDate = new Date("Apr 21, 2019 00:00:00").getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+            // Get todays date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s " + "REMAINING UNTIL TRIP";
+
+            // If the count down is finished, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+            }, 1000);
+            </script>
+        </div> 
     </main>
-<footer>
-    <!-- JAVASCRIPT CODE -->
-    <!-- Display the countdown timer in an element -->
-    <p id="demo"></p>
-
-    <script>
-    // Set the date we're counting down to
-    var countDownDate = new Date("Apr 21, 2019 00:00:00").getTime();
-
-    // Update the count down every 1 second
-    var x = setInterval(function() {
-
-    // Get todays date and time
-    var now = new Date().getTime();
-
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
-
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Display the result in the element with id="demo"
-    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s " + "REMAINING UNTIL TRIP";
-
-    // If the count down is finished, write some text 
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "EXPIRED";
-    }
-    }, 1000);
-    </script>
-</footer>
+    <footer></footer>
 </body>
 </html>
